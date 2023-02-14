@@ -26,7 +26,7 @@ public class CollectorsDemo {
 
         Integer[] data = {1, 2, 3, 4, 5, 6};
 
-        Collection<Integer> dataCollection = Arrays.asList(data);
+        List<Integer> dataCollection = Arrays.asList(data);
 
         List<Integer> dataCopy = dataCollection
                 .stream()
@@ -34,7 +34,7 @@ public class CollectorsDemo {
                 .collect(Collectors.toList());
         logCollection("dataCopy", dataCopy);
 
-        Collection<List<Integer>> multiData = List.of(Arrays.asList(1, 2, 3, 4, 5), Arrays.asList(9, 8, 7, 6), dataCopy);
+        Collection<List<Integer>> multiData = List.of(dataCollection, Arrays.asList(9, 8, 7, 6), dataCopy);
 
         // combine down to a single list, easy way
         List<Integer> combinedMulti = new ArrayList<>();
@@ -51,7 +51,7 @@ public class CollectorsDemo {
         logCollection("combinedMultiReduce", combinedMultiReduce);
 
         // use collector? https://stackoverflow.com/questions/43625683/how-to-do-add-all-with-java-streams
-        // flatMap combineds the different collections into a single stream.
+        // flatMap combines the different collections into a single stream.
         List<Integer> combinedMultiCollect = multiData.stream()
                 .flatMap(List::stream)
                 .collect(Collectors.toList());

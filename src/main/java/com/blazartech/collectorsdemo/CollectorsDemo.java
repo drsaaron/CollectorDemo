@@ -61,6 +61,11 @@ public class CollectorsDemo {
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
         logCollection("combinedMultiCollect", combinedMultiCollect);
-
+        
+        // vectors
+        List<Vector2D> vectorList = Arrays.asList(new Vector2D(1, 1), new Vector2D(0, -1), new Vector2D(-2, 2));
+        Vector2D vectorSum = vectorList.stream().reduce(new Vector2D(), (accum, v) -> accum.plus(v));
+        System.out.println();
+        System.out.println("vectorSum = " + vectorSum);
     }
 }

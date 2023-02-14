@@ -19,9 +19,11 @@ public class CollectorsDemo {
     private static void logCollection(String name, Collection<Integer> data) {
         System.out.println();
         System.out.println("name -> " + name);
-        data.stream().forEach(i -> System.out.println("element " + i));
         
-        int sum = data.stream().collect(Collectors.summingInt(Integer::intValue));
+        int sum = data.stream()
+                .peek(i -> System.out.println("element " + i))
+                .collect(Collectors.summingInt(Integer::intValue));
+
         System.out.println("total = " + sum);
     }
 

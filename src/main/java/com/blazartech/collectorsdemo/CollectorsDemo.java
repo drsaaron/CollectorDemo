@@ -20,6 +20,9 @@ public class CollectorsDemo {
         System.out.println();
         System.out.println("name -> " + name);
         data.stream().forEach(i -> System.out.println("element " + i));
+        
+        int sum = data.stream().collect(Collectors.summingInt(Integer::intValue));
+        System.out.println("total = " + sum);
     }
 
     public static void main(String[] args) {

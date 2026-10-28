@@ -8,35 +8,10 @@ package com.blazartech.collectorsdemo;
  *
  * @author aar1069
  */
-public class Vector2D {
-    
-    private double x;
-    private double y;
+public record Vector2D(double x, double y) {
 
     public Vector2D() {
-        x = 0;
-        y = 0;
-    }
-    
-    public Vector2D(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
+        this(0, 0);
     }
     
     public Vector2D plus(Vector2D v) {
@@ -50,11 +25,5 @@ public class Vector2D {
     public double length() {
         return Math.sqrt(x * x + y * y);
     }
-
-    @Override
-    public String toString() {
-        return "Vector2D{" + "x=" + x + ", y=" + y + '}';
-    }
-    
     
 }

@@ -44,7 +44,7 @@ public class CollectorsDemo {
         // combine down to a single list, easy way
         List<Integer> combinedMulti = new ArrayList<>();
         multiData.stream()
-                .forEach(c -> combinedMulti.addAll(c));
+                .forEach(combinedMulti::addAll);
         logCollection("combinedMulti", combinedMulti);
 
         // do same, with reducer
